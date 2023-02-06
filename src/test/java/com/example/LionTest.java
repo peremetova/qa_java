@@ -28,4 +28,11 @@ public class LionTest extends TestCase {
         lion.getFood();
         Mockito.verify(feline, Mockito.times(1)).getFood(Mockito.anyString());
     }
+
+    @Test
+    public void testGetKittensWithStubFeline() throws Exception {
+        Lion lion = new Lion(SEX, feline);
+        Mockito.when(feline.getKittens()).thenReturn(5);
+        assertEquals(5, lion.getKittens());
+    }
 }
